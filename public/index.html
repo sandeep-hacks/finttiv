@@ -1609,9 +1609,8 @@ async function handleFinanceQuery() {
     try {
         // Determine API URL based on environment
         const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        const apiUrl = isLocalhost 
-            ? 'http://localhost:5501/api/chat'
-            : 'https://finttiv.vercel.app/';
+        const apiUrl = '/api/chat';
+
         
         console.log('📡 Calling API:', apiUrl);
         
