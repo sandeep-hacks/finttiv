@@ -18,34 +18,27 @@ export default async function handler(req, res) {
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
  const prompt = `
-You are an intelligent chat system.
+You are a chat assistant.
 
-FIRST, analyze the user's message and decide internally:
-- Does it show signs of financial scam or fraud? (Yes / No)
+Check the user's message for financial scam or fraud signs.
 
-IF the message shows scam or fraud signals:
-You MUST respond ONLY in the following format:
+IF it is a scam, reply ONLY in this format:
 
-⚠️ Scam Alert
-This message appears to be a financial scam.
-Reason: Briefly explain the key red flags detected.
+⚠️ Scam Alert  
+This message appears to be a financial scam.  
+Reason: Briefly state the main red flags.
 
-IF the message does NOT show scam or fraud signals:
-You MUST respond normally like a regular chat assistant.
-- No warnings
-- No scam explanation
-- No bullet points
-- Just answer the user's message naturally
+ELSE, reply normally to the user's message like a regular chat assistant.
+No warnings. No explanations. No extra formatting.
 
-IMPORTANT RULES:
-- Do NOT mention analysis or decision-making
-- Do NOT explain why you chose this path
-- Output ONLY the final response
-- No extra text outside the response
+Rules:
+- Do not mention analysis or decisions
+- Output only the final reply
 
 User message:
 "${message}"
 `;
+
 
 
 
