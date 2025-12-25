@@ -17,28 +17,19 @@ export default async function handler(req, res) {
     // Get the Gemini Pro model
     const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
- const prompt = `
-You are a chat assistant.
+ const prompt = `    
+    Analyze the following message for potential financial scams. Provide your analysis in EXACTLY this format:
+    
+    Explanation
+    [Your explanation here. Explain why this message is or isn't a scam. Mention specific red flags or safe indicators. Keep it concise but informative.]
+    
+    Safety Tips
+    [Provide 4-5 actionable safety tips. Each tip should be on a new line starting with "- ". Make them practical and specific for Indian students.]
 
-Check the user's message for financial scam or fraud signs.
-
-IF it is a scam, reply ONLY in this format:
-
-⚠️ Scam Alert  
-This message appears to be a financial scam.  
-Reason: Briefly state the main red flags.
-
-ELSE, reply normally to the user's message like a regular chat assistant.
-No warnings. No explanations. No extra formatting.
-
-Rules:
-- Do not mention analysis or decisions
-- Output only the final reply
-
-User message:
-"${message}"
-`;
-
+    The message to analyze: "${message}"
+    
+    Important: Follow the format exactly as shown above with "Explanation" and "Safety Tips" headings.
+    `;
 
 
 
